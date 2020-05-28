@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${fontSizes.md};
     color: ${colors.black};
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -60,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
 
   img {
     width: 100%;
-    max-width: 100px;
+    max-width: 100%;
   }
 
   svg {
@@ -72,6 +73,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     cursor: pointer;
     transition: ${theme.transition};
+    display: inline-block
   }
 `;
 

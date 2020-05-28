@@ -1,10 +1,14 @@
 module.exports = {
   colors: {
-    primaryColor: "#64FFDA",
+    primaryColor: "#ff0054",
     almostWhite: "#EDEDED",
     white: "#fff",
     black: "#000",
     lightGrey: "#B7B7B7",
+    faintGrey: "#333232",
+    darkGrey: "#3e3d3d",
+    grey: "#c7c7c7",
+    iconGrey: "#777777",
   },
 
   fonts: {
@@ -18,6 +22,7 @@ module.exports = {
     sm: "600px",
     md: "900px",
     lg: "1200px",
+    xl: "1440px",
   },
 
   fontSizes: {

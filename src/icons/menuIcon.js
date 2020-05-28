@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { colors } from "../styles/theme";
 
-const Icon = styled.div`
+const Icon = styled.button`
   border: none;
   outline: none;
   background: transparent;
@@ -10,33 +10,33 @@ const Icon = styled.div`
   .menu-icon {
     display: grid;
     align-items: center;
-    height: 35px;
-    width: 50px;
+    justify-content: center;
+    height: 30px;
+    width: 40px;
     position: relative;
     cursor: pointer;
 
     & > span {
-      width: 38px;
-      height: 3.5px;
+      width: 32px;
+      height: 2px;
       justify-self: end;
       background: ${colors.white};
       display: block;
       transition: all 0.3s ease-in-out;
-      border-radius: 1px;
     }
 
     &:hover span:nth-child(1) {
-      width: 25px;
+      width: 20px;
     }
 
     &:hover span:nth-child(2) {
-      width: 30px;
+      width: 25px;
     }
 
     &.active span:nth-child(1) {
       transform-origin: center center;
-      transform: rotate(-45deg) translate(-5px, 11px);
-      width: 40px;
+      transform: rotate(-45deg) translate(-5px, 9px);
+      width: 35px;
       background: ${colors.primaryColor};
     }
 
@@ -47,18 +47,18 @@ const Icon = styled.div`
 
     &.active span:nth-child(3) {
       transform-origin: center center;
-      transform: rotate(45deg) translate(-5px, -12px);
-      width: 40px;
+      transform: rotate(45deg) translate(-5px, -10px);
+      width: 35px;
       background: ${colors.primaryColor};
     }
 
     .line-1 {
-      width: 32px;
+      width: 25px;
       justify-self: end;
     }
 
     .line-2 {
-      width: 25px;
+      width: 20px;
       justify-self: end;
     }
   }
