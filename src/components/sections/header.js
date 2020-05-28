@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { colors, fontSizes, breakpoints } from "../../styles/theme";
 
 const StyledHeader = styled.header`
-  @media screen and (min-width: ${breakpoints.lg}) {
+  @media screen and (min-width: ${breakpoints.xl}) {
     width: ${breakpoints.lg};
     margin: 0 auto;
     min-height: calc(100vh - 140px);

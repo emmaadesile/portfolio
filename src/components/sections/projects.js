@@ -3,19 +3,19 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 
 import Heading from "../../styles/heading";
-import { colors, transition } from "../../styles/theme";
+import { colors } from "../../styles/theme";
+import buttonStyles from "../../styles/buttonStyles";
 
 const Container = styled.section`
-  /* margin: 0 auto; */
   display: grid;
   align-items: center;
 `;
 
 const ProjectImageTwo = styled.div`
-  width: ${(props) => props.odd ? '320px' : '350px'};
+  width: ${(props) => (props.odd ? "320px" : "350px")};
   position: absolute;
-  top: ${(props) => props.odd ? '45%' : '50%'};
-  left: ${(props) => props.odd ? '28%' : '35%'};
+  top: ${(props) => (props.odd ? "45%" : "50%")};
+  left: 35%;
   z-index: 100;
 `;
 
@@ -72,16 +72,10 @@ const ProjectInfo = styled.div`
 `;
 
 const ViewButton = styled.a`
-  font-size: 10px;
-  border: 1px solid ${colors.primaryColor};
-  color: ${colors.white};
-  padding: 8px 25px;
-  transition: ${transition};
+  ${buttonStyles};
 
-  &:hover {
-    background: ${colors.primaryColor};
-    border: 1px solid ${colors.primaryColor};
-  }
+  font-size: 10px;
+  padding: 8px 25px;
 `;
 
 function Projects({ data }) {
@@ -90,14 +84,14 @@ function Projects({ data }) {
     <Container>
       <Heading name="works" />
       <Section>
-        <StyledSection even={true} >
+        <StyledSection even={true}>
           <div className="projectOne">
             <Img
               alt="project-one-1"
               fluid={data.projectOne.childImageSharp.fluid}
             />
           </div>
-          <ProjectInfo>
+          <ProjectInfo style={{ justifySelf: "end" }}>
             <div className="projectNum">
               <div className="line"></div>
               <h1>01</h1>
@@ -133,7 +127,7 @@ function Projects({ data }) {
             </p>
             <ViewButton>View</ViewButton>
           </ProjectInfo>
-          <div className="projectOne">
+          <div className="projectOne" style={{ justifySelf: "end" }}>
             <Img
               alt="project-one-1"
               fluid={data.projectTwo.childImageSharp.fluid}

@@ -6,12 +6,12 @@ import { Link } from "gatsby";
 import { breakpoints, fontSizes, colors, transition } from "../../styles/theme";
 
 const Container = styled.nav`
+  max-width: ${breakpoints.xl};
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 140px;
   margin: 0 auto;
-  max-width: ${breakpoints.lg};
   position: relative;
 
   @media only screen and (max-width: ${breakpoints.xs}) {

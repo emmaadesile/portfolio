@@ -5,12 +5,14 @@ import Layout from "../components/sections/layout";
 import SEO from "../components/seo";
 import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
+import Footer from "../components/sections/footer";
 
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <Projects data={ data } />
+    <Projects data={data} />
     <Contact />
+    <Footer />
   </Layout>
 );
 
