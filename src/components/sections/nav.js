@@ -13,22 +13,14 @@ const Container = styled.nav`
   height: 140px;
   margin: 0 auto;
   position: relative;
-
-  @media only screen and (max-width: ${breakpoints.xs}) {
-    padding: 0 15px;
-  }
+  padding: 0 1.5rem;
 `;
 
 const NavLink = styled.div`
-  width: 60px;
-  height: 36px;
   display: grid;
-  place-items: center;
+  align-items: center;
+  justify-items: center;
   cursor: pointer;
-
-  @media only screen and (max-width: ${breakpoints.xs}) {
-    /* width: 35px; */
-  }
 `;
 
 const NavItems = styled.div`
@@ -38,8 +30,13 @@ const NavItems = styled.div`
   right: 5px;
   top: 120px;
 
-  @media only screen and (max-width: ${breakpoints.xs}) {
-    right: 25px;
+  @media (min-width: ${breakpoints.xxs}) {
+    right: 2rem;
+    top: 100px;
+  }
+
+  @media (min-width: ${breakpoints.xs}) {
+    right: 1.8rem;
   }
 
   ul {
@@ -50,48 +47,56 @@ const NavItems = styled.div`
     opacity: 0;
     transform: translateY(30px);
     transition: ${transition};
-    font-size: ${fontSizes.xxl};
+    font-size: ${fontSizes.xl};
 
-    @media only screen and (max-width: ${breakpoints.sm}) {
+    @media only screen and (min-width: ${breakpoints.xxs}) {
+      font-size: ${fontSizes.xs};
+    }
+
+    @media only screen and (min-width: ${breakpoints.xs}) {
+      font-size: ${fontSizes.xs};
+    }
+
+    @media only screen and (min-width: ${breakpoints.sm}) {
       font-size: ${fontSizes.sm};
     }
 
-    @media only screen and (max-width: ${breakpoints.md}) {
-      font-size: ${fontSizes.md};
+    @media only screen and (min-width: ${breakpoints.md}) {
+      font-size: ${fontSizes.lg};
     }
 
-    @media only screen and (max-width: ${breakpoints.xs}) {
-      font-size: ${fontSizes.sm};
-    }
 
     &.open {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(10px);
     }
 
-    &.open li {
-      transform: translateY(0);
-    }
+    /* &.open li::before {
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 5px;
+      top: 20px;
+      background: ${colors.primaryColor};
+    } */
 
-    &.open li::before {
-      height: 0;
-      bottom: 0;
-    }
-
-    li {
-      transform: translateY(20px);
+     li {
       position: relative;
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: ${colors.black};
-        height: 30px;
-        width: 140px;
-        z-index: 100;
+      /* &::before {
+        width: 0;
+        height: 0;
         transition: ${transition};
+      } */
+
+      &:hover::before {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 5px;
+        top: 20px;
+        right: 0;
+        background: ${colors.primaryColor};
       }
 
       a {

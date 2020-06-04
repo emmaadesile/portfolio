@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     cursor: pointer;
     transition: ${theme.transition};
-    display: inline-block
+    display: inline-block;
   }
 `;
 

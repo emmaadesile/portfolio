@@ -4,40 +4,61 @@ import styled from "styled-components";
 import { colors, fontSizes, breakpoints } from "../../styles/theme";
 
 const StyledHeader = styled.header`
-  @media screen and (min-width: ${breakpoints.xl}) {
-    width: ${breakpoints.lg};
-    margin: 0 auto;
-    min-height: calc(100vh - 140px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
+  max-width: ${breakpoints.xl};
+  color: ${colors.primaryColor};
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5rem;
 
+  .header-name {
+    text-transform: uppercase;
+  }
+
+  .header-info {
+    margin-top: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  @media (min-width: ${breakpoints.xxs}) and (max-width: ${breakpoints.xxs}) {
     .header-name {
-      font-size: 70px;
-      text-transform: uppercase;
-      width: 514px;
+      font-size: 2.3rem;
+      line-height: 3rem;
     }
 
     .header-info {
-      margin-top: 2em;
-      line-height: 1.5em;
-      width: 600px;
-      color: ${colors.primaryColor};
+      font-size: ${fontSizes.xxs};
+      line-height: 1.3rem;
     }
   }
 
-  @media only screen and (max-width: ${breakpoints.xs}) {
+  @media (min-width: ${breakpoints.xs}) {
     grid-template-columns: 1fr;
-    padding: 0 20px;
-    overflow-x: hidden;
 
     .header-name {
-      font-size: 40px;
+      font-size: 3.1rem;
+      line-height: 3rem;
     }
+
     .header-info {
       font-size: ${fontSizes.sm};
-      width: 345px;
+    }
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    margin: 0 auto;
+
+    .header-name {
+      text-transform: uppercase;
+      font-size: 5rem;
+      width: 514px;
+      line-height: 4.5rem;
+    }
+
+    .header-info {
+      font-size: ${fontSizes.md};
+      width: 600px;
     }
   }
 `;

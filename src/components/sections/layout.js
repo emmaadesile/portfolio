@@ -9,7 +9,7 @@ import Header from "./header";
 import Navigation from "./nav";
 
 const LayoutContainer = styled.div`
-  max-width: ${breakpoints.lg};
+  max-width: ${breakpoints.xl};
   margin: 0 auto;
 `;
 

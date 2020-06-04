@@ -18,11 +18,12 @@ module.exports = {
   },
 
   breakpoints: {
+    xxs: "320px",
     xs: "400px",
-    sm: "600px",
-    md: "900px",
-    lg: "1200px",
-    xl: "1440px",
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
   },
 
   fontSizes: {
