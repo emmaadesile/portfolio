@@ -47,13 +47,13 @@ const GlobalStyle = createGlobalStyle`
     &.header-title {
       line-height: 1.1;
 
-      @media screen and (max-width: ${breakpoints.lg}) {
+      @media screen and (min-width: ${breakpoints.lg}) {
         font-size: 70px;
       }
-      @media screen and (max-width: ${breakpoints.md}){
+      @media screen and (min-width: ${breakpoints.md}){
         font-size: 50px;
       }
-      @media screen and (max-width: ${breakpoints.xs}) {
+      @media screen and (min-width: ${breakpoints.xs}) {
         font-size: 30px;
       }
     }

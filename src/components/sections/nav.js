@@ -69,40 +69,56 @@ const NavItems = styled.div`
     &.open {
       opacity: 1;
       transform: translateY(10px);
+
+      li {
+        transition: ${transition};
+
+        &:hover {
+          position: relative;
+        }
+
+        /* &:hover::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 5px;
+          bottom: -5px;
+          right: 0;
+          background: ${colors.primaryColor};
+          transform-origin: bottom right;
+        } */
+
+        a {
+          color: ${colors.white}
+        };
+      }
     }
 
-    /* &.open li::before {
-      position: absolute;
-      content: '';
-      width: 20px;
-      height: 5px;
-      top: 20px;
-      background: ${colors.primaryColor};
-    } */
-
-     li {
+    /*
+      li {
       position: relative;
 
-      /* &::before {
-        width: 0;
-        height: 0;
+      &:hover {
         transition: ${transition};
-      } */
+      }
 
-      &:hover::before {
-        position: absolute;
+    
+
+      &:hover::after {
         content: '';
-        width: 20px;
+        position: absolute;
+        width: 100%;
         height: 5px;
-        top: 20px;
+        bottom: -5px;
         right: 0;
         background: ${colors.primaryColor};
+        transform-origin: bottom right;
       }
 
       a {
         color: ${colors.white};
       }
-    }
+    }  */
   }
 `;
 

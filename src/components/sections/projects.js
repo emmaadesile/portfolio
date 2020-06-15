@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState, useRef, useLayoutEffect } from "react";
+import styled, { keyframes } from "styled-components";
 import Img from "gatsby-image";
 
 import Heading from "../../styles/heading";
-import { colors, breakpoints } from "../../styles/theme";
+import { colors, breakpoints, transition } from "../../styles/theme";
 import buttonStyles from "../../styles/buttonStyles";
+
+const move = keyframes`
+  0% {  transform: translateY(0) }
+  100% { transform: translateY(-100px) }
+`;
 
 const Container = styled.section`
   display: grid;
@@ -14,7 +19,6 @@ const Container = styled.section`
 
 const Project = styled.div`
   position: relative;
-  margin-top: ${(props) => (props.odd ? "2rem" : "15rem")};
 
   @media (min-width: ${breakpoints.xs}) {
     display: flex;
@@ -29,7 +33,7 @@ const Project = styled.div`
   @media (min-width: ${breakpoints.lg}) {
     display: grid;
     grid-template-columns: ${(props) => (props.odd ? "2fr 1fr" : "1fr 2fr")};
-    margin-top: ${(props) => (props.odd ? "1rem" : "10rem")};
+    margin-top: ${(props) => (props.odd ? "1rem" : "20rem")};
   }
 `;
 
@@ -124,6 +128,7 @@ const ProjectImages = styled.div`
   .project-image-2 {
     position: absolute;
     z-index: 999;
+    transform: translateY(0);
 
     @media (min-width: ${breakpoints.xss}) {
       width: 100px;
@@ -147,6 +152,9 @@ const ProjectImages = styled.div`
       width: 300px;
       bottom: -10%;
       right: ${(props) => (props.odd ? "5%" : "60%")};
+      transition: ${transition};
+      /* animation: ${(props) => props.animate ? "1.5s ${move} ease-in-out" : ""}; */
+      /* animation: 3s ${move} ease-in-out both alternate infinite; */
     }
 
     @media (min-width: ${breakpoints.xl}) {
@@ -178,21 +186,50 @@ const ViewButton = styled.a`
 `;
 
 function Projects({ data }) {
-  // const [elementInView, setelementInView] = useState(false);
+  const [elementInView, setelementInView] = useState({
+    projectOne: false,
+    projectTwo: false,
+  });
+  const projectOneRef = useRef(null);
+  const projectTwoRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const topPosition = (element) =>
+      element.current.getBoundingClientRect().top;
+
+    const projectOnePosition = topPosition(projectOneRef);
+    const projectTwoPosition = topPosition(projectTwoRef);
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (projectOnePosition < scrollPosition) {
+        setelementInView((state) => ({ ...state, projectOne: true }));
+      } else if (projectTwoPosition < scrollPosition) {
+        setelementInView((state) => ({ ...state, projectTwo: true }));
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Container>
       <Heading name="works" />
 
       <Project odd={true}>
-        <ProjectImages odd={true}>
+        <ProjectImages odd={true} animate={elementInView.projectOne}>
           <div className="project-image-1">
             <Img
               alt="project-one-1"
               fluid={data.projectOne.childImageSharp.fluid}
             />
           </div>
-          <div className="project-image-2">
+          <div className="project-image-2" ref={projectOneRef}>
             <Img
               alt="project-image-2"
               fluid={data.projectOne2.childImageSharp.fluid}
@@ -245,7 +282,7 @@ function Projects({ data }) {
               fluid={data.projectTwo.childImageSharp.fluid}
             />
           </div>
-          <div className="project-image-2">
+          <div className="project-image-2" ref={projectTwoRef}>
             <Img
               alt="project-one-2"
               fluid={data.projectTwo2.childImageSharp.fluid}
