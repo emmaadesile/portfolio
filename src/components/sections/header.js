@@ -25,16 +25,15 @@ const StyledHeader = styled.header`
 
   .header-name {
     text-transform: uppercase;
-    /* opacity: 0; */
 
-    &:nth-child(1) {
+    /* &:nth-child(1) {
       animation: ${slideIn} 500ms ease-in 1s;
     }
 
     &:nth-child(2) {
       animation: ${slideIn} 500ms ease-in;
       animation-delay: 2s;
-    }
+    } */
   }
 
   .header-info {
