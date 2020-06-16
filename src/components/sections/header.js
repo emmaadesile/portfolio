@@ -1,7 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colors, fontSizes, breakpoints } from "../../styles/theme";
+
+const slideIn = keyframes`
+  0% { 
+    opacity: 0;
+    transform: translateY(30px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  } 
+`;
 
 const StyledHeader = styled.header`
   max-width: ${breakpoints.xl};
@@ -14,6 +25,16 @@ const StyledHeader = styled.header`
 
   .header-name {
     text-transform: uppercase;
+    /* opacity: 0; */
+
+    &:nth-child(1) {
+      animation: ${slideIn} 500ms ease-in 1s;
+    }
+
+    &:nth-child(2) {
+      animation: ${slideIn} 500ms ease-in;
+      animation-delay: 2s;
+    }
   }
 
   .header-info {
@@ -52,7 +73,7 @@ const StyledHeader = styled.header`
     .header-name {
       text-transform: uppercase;
       font-size: 5rem;
-      width: 514px;
+      max-width: 514px;
       line-height: 4.5rem;
     }
 
@@ -65,7 +86,10 @@ const StyledHeader = styled.header`
 
 const Header = () => (
   <StyledHeader>
-    <h1 className="header-name">Emmanuel Adesile</h1>
+    <h1 className="header-name">
+      <div>Emmanuel</div>
+      <div>Adesile</div>
+    </h1>
     <p className="header-info">
       I’m a Frontend Engineer and UI Designer currently based in Lagos, Nigeria.
       I specialize in building high quality Web and Mobile apps. I love

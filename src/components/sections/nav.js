@@ -1,9 +1,21 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Logo from "../../icons/logo";
 import MenuIcon from "../../icons/menuIcon";
 import { Link } from "gatsby";
 import { breakpoints, fontSizes, colors, transition } from "../../styles/theme";
+
+const moveIn = keyframes`
+  0% { 
+    opacity: 0; 
+    transform: translateY(-30px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+    /* transform-origin: center bottom; */
+  }
+`;
 
 const Container = styled.nav`
   max-width: ${breakpoints.xl};
@@ -14,6 +26,8 @@ const Container = styled.nav`
   margin: 0 auto;
   position: relative;
   padding: 0 1.5rem;
+
+  animation: 800ms ${moveIn} cubic-bezier(0,.63,.32,1);
 `;
 
 const NavLink = styled.div`
@@ -76,17 +90,6 @@ const NavItems = styled.div`
         &:hover {
           position: relative;
         }
-
-        /* &:hover::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 5px;
-          bottom: -5px;
-          right: 0;
-          background: ${colors.primaryColor};
-          transform-origin: bottom right;
-        } */
 
         a {
           color: ${colors.white}

@@ -6,10 +6,10 @@ import Heading from "../../styles/heading";
 import { colors, breakpoints, transition } from "../../styles/theme";
 import buttonStyles from "../../styles/buttonStyles";
 
-const move = keyframes`
-  0% {  transform: translateY(0) }
-  100% { transform: translateY(-100px) }
-`;
+// const move = keyframes`
+//   0% {  transform: translateY(0) }
+//   100% { transform: translateY(-100px) }
+// `;
 
 const Container = styled.section`
   display: grid;

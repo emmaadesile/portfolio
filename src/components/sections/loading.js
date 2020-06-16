@@ -9,12 +9,8 @@ const changeColor = keyframes`
 `;
 
 const fillBar = keyframes`
-  0% {
-    background: transparent;
-  }
-  100% {
-    background: ${colors.primaryColor};
-  }
+  0% { background: transparent}
+  100% { background: ${colors.primaryColor}}
 `;
 
 const Box = styled.div`
@@ -49,18 +45,15 @@ const LoadingText = styled.p`
   animation: 2s ${changeColor} ease-in-out both infinite;
 `;
 
-const myArr = Array.from({ length: 8 }, (_, i) => (
-  <Bar delay={i === 0 ? "200ms" : `${i * 200}ms`} />
-));
-
 const Loading = () => {
   return (
     <>
       <GlobalStyle />
       <Container>
         <Box>
-          {Array.from({ length: 15 }, (_, i) => (
-            <Bar delay={i === 0 ? "200ms" : `${i * 200}ms`} />
+          {/* Generate 15 Bars using Array.from */}
+          {Array.from({ length: 13 }, (_, i) => (
+            <Bar delay={i === 0 ? "200ms" : `${i * 200}ms`} key={i} />
           ))}
         </Box>
         <LoadingText>Loading</LoadingText>
@@ -70,19 +63,3 @@ const Loading = () => {
 };
 
 export default Loading;
-
-/*
-          <Bar delay="200ms" />
-          <Bar delay="400ms" />
-          <Bar delay="600ms" />
-          <Bar delay="800ms" />
-          <Bar delay="1s" />
-          <Bar delay="1.2s" />
-          <Bar delay="1.4s" />
-          <Bar delay="1.6s" />
-          <Bar delay="1.8s" />
-          <Bar delay="2.2s" />
-          <Bar delay="2.4s" />
-          <Bar delay="2.6s" />
-          <Bar delay="2.8s" />
-*/
