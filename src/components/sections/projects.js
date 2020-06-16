@@ -153,8 +153,6 @@ const ProjectImages = styled.div`
       bottom: -10%;
       right: ${(props) => (props.odd ? "5%" : "60%")};
       transition: ${transition};
-      /* animation: ${(props) => props.animate ? "1.5s ${move} ease-in-out" : ""}; */
-      /* animation: 3s ${move} ease-in-out both alternate infinite; */
     }
 
     @media (min-width: ${breakpoints.xl}) {

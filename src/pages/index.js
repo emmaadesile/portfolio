@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/sections/layout";
@@ -6,15 +6,29 @@ import SEO from "../components/seo";
 import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
 import Footer from "../components/sections/footer";
+import Loading from "../components/sections/loading";
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home" />
-    <Projects data={data} />
-    <Contact />
-    <Footer />
-  </Layout>
-);
+const IndexPage = ({ data }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsLoading(false), 3000);
+    return () => {
+      return timeout;
+    };
+  }, []);
+
+  return isLoading ? (
+    <Loading />
+  ) : (
+    <Layout>
+      <SEO title="Home" />
+      <Projects data={data} />
+      <Contact />
+      <Footer />
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
