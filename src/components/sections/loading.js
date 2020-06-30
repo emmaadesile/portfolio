@@ -52,7 +52,7 @@ const Loading = () => {
       <Container>
         <Box>
           {/* Generate 15 Bars using Array.from */}
-          {Array.from({ length: 13 }, (_, i) => (
+          {Array.from({ length: 10 }, (_, i) => (
             <Bar delay={i === 0 ? "200ms" : `${i * 200}ms`} key={i} />
           ))}
         </Box>

@@ -96,32 +96,6 @@ const NavItems = styled.div`
         };
       }
     }
-
-    /*
-      li {
-      position: relative;
-
-      &:hover {
-        transition: ${transition};
-      }
-
-    
-
-      &:hover::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 5px;
-        bottom: -5px;
-        right: 0;
-        background: ${colors.primaryColor};
-        transform-origin: bottom right;
-      }
-
-      a {
-        color: ${colors.white};
-      }
-    }  */
   }
 `;
 
@@ -144,17 +118,17 @@ function Navigation() {
       </NavLink>
       <NavItems>
         <ul className={isMenuClicked ? "open" : ""}>
-          <li className="menu-blog">
+          {/* <li className="menu-blog">
             <Link to="/">Blog</Link>
-          </li>
+          </li> */}
           <li className="menu-about">
-            <Link to="/">About</Link>
+            <a href="#about">About</a>
           </li>
           <li className="menu-works">
-            <Link to="/">Works</Link>
+            <a href="#works">Works</a>
           </li>
           <li className="menu-contact">
-            <Link to="/">Contact</Link>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </NavItems>
