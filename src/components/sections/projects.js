@@ -1,15 +1,10 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Img from "gatsby-image";
 
 import Heading from "../../styles/heading";
 import { colors, breakpoints, transition } from "../../styles/theme";
 import buttonStyles from "../../styles/buttonStyles";
-
-// const move = keyframes`
-//   0% {  transform: translateY(0) }
-//   100% { transform: translateY(-100px) }
-// `;
 
 const Container = styled.section`
   display: grid;
@@ -249,7 +244,9 @@ function Projects({ data }) {
             <p>Reach Router</p>
             <p>TMDB API</p>
           </ProjectTools>
-          <ViewButton>View</ViewButton>
+          <ViewButton href="https://moviemania.netlify.app" taget="_blank">
+            View
+          </ViewButton>
         </ProjectInfo>
       </Project>
 
@@ -270,7 +267,12 @@ function Projects({ data }) {
             <p>React</p>
             <p>React Router</p>
           </ProjectTools>
-          <ViewButton>View</ViewButton>
+          <ViewButton
+            href="https://ride-my-way-client.herokuapp.com"
+            taget="_blank"
+          >
+            View
+          </ViewButton>
         </ProjectInfo>
 
         <ProjectImages style={{ justifySelf: "end" }}>
