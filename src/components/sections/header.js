@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import FadeIn from "react-fade-in";
 import styled, { keyframes } from "styled-components";
 import { colors, fontSizes, breakpoints } from "../../styles/theme";
 
@@ -25,15 +26,6 @@ const StyledHeader = styled.header`
 
   .header-name {
     text-transform: uppercase;
-
-    /* &:nth-child(1) {
-      animation: ${slideIn} 500ms ease-in 1s;
-    }
-
-    &:nth-child(2) {
-      animation: ${slideIn} 500ms ease-in;
-      animation-delay: 2s;
-    } */
   }
 
   .header-info {
@@ -83,19 +75,33 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <h1 className="header-name">
-      <div>Emmanuel</div>
-      <div>Adesile</div>
-    </h1>
-    <p className="header-info">
-      I’m a Frontend Engineer and UI Designer currently based in Lagos, Nigeria.
-      I specialize in building high quality Web and Mobile apps. I love
-      exploring innovative ways of solving problems.
-    </p>
-  </StyledHeader>
-);
+const Header = () => {
+  // const
+  // useEffect(() => {
+  //   const fadeInTimeout = setTimeout(() => 4000)
+  //   return () => {
+  //     cleanup;
+  //   };
+  // }, [input]);
+
+  return (
+    <StyledHeader>
+      <h1 className="header-name">
+        <FadeIn delay={100} transitionDuration={500}>
+          <div>Emmanuel</div>
+          <div>Adesile</div>
+        </FadeIn>
+      </h1>
+      <FadeIn delay={400}>
+        <p className="header-info">
+          I’m a Frontend Engineer and UI Designer currently based in Lagos,
+          Nigeria. I specialize in building high quality Web and Mobile apps. I
+          love exploring innovative ways of solving problems.
+        </p>
+      </FadeIn>
+    </StyledHeader>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

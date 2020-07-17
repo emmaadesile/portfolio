@@ -244,7 +244,7 @@ function Projects({ data }) {
             <p>Reach Router</p>
             <p>TMDB API</p>
           </ProjectTools>
-          <ViewButton href="https://moviemania.netlify.app" taget="_blank">
+          <ViewButton href="https://moviemania.netlify.app" target="_blank">
             View
           </ViewButton>
         </ProjectInfo>
@@ -269,7 +269,7 @@ function Projects({ data }) {
           </ProjectTools>
           <ViewButton
             href="https://ride-my-way-client.herokuapp.com"
-            taget="_blank"
+            target="_blank"
           >
             View
           </ViewButton>

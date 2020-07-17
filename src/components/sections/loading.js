@@ -16,7 +16,7 @@ const fillBar = keyframes`
 const Box = styled.div`
   display: flex;
   width: 400px;
-  height: 30px;
+  height: 10px;
   border: 1px solid ${colors.primaryColor};
   margin-bottom: 20px;
 `;

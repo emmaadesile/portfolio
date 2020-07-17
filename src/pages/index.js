@@ -7,6 +7,7 @@ import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
 import Footer from "../components/sections/footer";
 import Loading from "../components/sections/loading";
+import GlobalStyle from "../styles/GlobalStyle";
 
 const IndexPage = ({ data }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,19 +15,22 @@ const IndexPage = ({ data }) => {
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 3000);
     return () => {
-      return timeout;
+      return clearTimeout(timeout);
     };
   }, []);
 
   return isLoading ? (
     <Loading />
   ) : (
-    <Layout>
-      <SEO title="Home" />
-      <Projects data={data} />
-      <Contact />
-      <Footer />
-    </Layout>
+    <React.Fragment>
+      <GlobalStyle />
+      <Layout>
+        <SEO title="Home" />
+        <Projects data={data} />
+        <Contact />
+        <Footer />
+      </Layout>
+    </React.Fragment>
   );
 };
 
