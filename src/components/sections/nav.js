@@ -13,7 +13,6 @@ const moveIn = keyframes`
   100% { 
     opacity: 1;
     transform: translateY(0);
-    /* transform-origin: center bottom; */
   }
 `;
 
@@ -118,9 +117,6 @@ function Navigation() {
       </NavLink>
       <NavItems>
         <ul className={isMenuClicked ? "open" : ""}>
-          {/* <li className="menu-blog">
-            <Link to="/">Blog</Link>
-          </li> */}
           <li className="menu-about">
             <a href="#about">About</a>
           </li>

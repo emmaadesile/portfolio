@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import FadeIn from "react-fade-in";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { colors, fontSizes, breakpoints } from "../../styles/theme";
+
+const nameStyles = css`
+  transform: translateY(30px);
+`
 
 const slideIn = keyframes`
   0% { 
@@ -76,23 +80,33 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-  // const
-  // useEffect(() => {
-  //   const fadeInTimeout = setTimeout(() => 4000)
-  //   return () => {
-  //     cleanup;
-  //   };
-  // }, [input]);
 
   return (
     <StyledHeader>
       <h1 className="header-name">
-        <FadeIn delay={100} transitionDuration={500}>
-          <div>Emmanuel</div>
-          <div>Adesile</div>
+        <FadeIn delay={100}>
+          <div>
+            <span>E</span>
+            <span>M</span>
+            <span>M</span>
+            <span>A</span>
+            <span>N</span>
+            <span>U</span>
+            <span>E</span>
+            <span>L</span>
+          </div>
+          <div>
+            <span>A</span>
+            <span>D</span>
+            <span>E</span>
+            <span>S</span>
+            <span>I</span>
+            <span>L</span>
+            <span>E</span>
+          </div>
         </FadeIn>
       </h1>
-      <FadeIn delay={400}>
+      <FadeIn delay={200}>
         <p className="header-info">
           I’m a Frontend Engineer and UI Designer currently based in Lagos,
           Nigeria. I specialize in building high quality Web and Mobile apps. I

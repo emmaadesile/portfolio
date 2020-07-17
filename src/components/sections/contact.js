@@ -69,7 +69,7 @@ const GetInTouchButton = styled.div`
 `;
 
 const Contact = () => (
-  <Container>
+  <Container id="contact">
     <Heading name="contact" />
     <ContactWrapper>
       <Column>

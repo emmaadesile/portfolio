@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
+import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/sections/layout";
-import SEO from "../components/seo";
-import Projects from "../components/sections/projects";
-import Contact from "../components/sections/contact";
-import Footer from "../components/sections/footer";
-import Loading from "../components/sections/loading";
-import GlobalStyle from "../styles/GlobalStyle";
+import Layout from '../components/sections/layout';
+import SEO from '../components/seo';
+import Projects from '../components/sections/projects';
+import Contact from '../components/sections/contact';
+import Footer from '../components/sections/footer';
+import Loading from '../components/sections/loading';
+import GlobalStyle from '../styles/GlobalStyle';
 
 const IndexPage = ({ data }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,21 +15,23 @@ const IndexPage = ({ data }) => {
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 3000);
     return () => {
-      return clearTimeout(timeout);
+      clearTimeout(timeout);
     };
   }, []);
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <React.Fragment>
       <GlobalStyle />
-      <Layout>
-        <SEO title="Home" />
-        <Projects data={data} />
-        <Contact />
-        <Footer />
-      </Layout>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Layout>
+          <SEO title="Home" />
+          <Projects data={data} />
+          <Contact />
+          <Footer />
+        </Layout>
+      )}
     </React.Fragment>
   );
 };

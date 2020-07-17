@@ -1,7 +1,6 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import { colors } from "../../styles/theme";
-import GlobalStyle from "../../styles/GlobalStyle";
+import React, { useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { colors, breakpoints } from '../../styles/theme';
 
 const changeColor = keyframes`
   0% { color: ${colors.darkGrey}}
@@ -19,13 +18,17 @@ const Box = styled.div`
   height: 10px;
   border: 1px solid ${colors.primaryColor};
   margin-bottom: 20px;
+
+  @media (max-width: ${breakpoints.md}) {
+    width: 300px;
+  }
 `;
 
 const Bar = styled.div`
   width: 10%;
   height: 100%;
   animation: ${fillBar} cubic-bezier(0.075, 0.82, 0.165, 1) both infinite;
-  animation-delay: ${({ delay }) => (delay ? delay : "300ms")};
+  animation-delay: ${({ delay }) => (delay ? delay : '300ms')};
 `;
 
 const Container = styled.div`
@@ -42,23 +45,35 @@ const LoadingText = styled.p`
   color: ${colors.primaryColor};
   text-transform: uppercase;
 
-  animation: 2s ${changeColor} ease-in-out both infinite;
+  /* animation: 2s ${changeColor} ease-in-out both infinite; */
 `;
 
 const Loading = () => {
+  const [loadingPercent, setLoadingPercent] = useState(0);
+  const maxCount = 100;
+
+  useEffect(() => {
+    const loadingInterval = setInterval(() => {
+      setLoadingPercent((loadingPercent) =>
+        loadingPercent <= maxCount ? loadingPercent + 1 : 100
+      );
+    }, 30);
+
+    return () => {
+      clearTimeout(loadingInterval);
+    };
+  }, []);
+
   return (
-    <>
-      <GlobalStyle />
-      <Container>
-        <Box>
-          {/* Generate 15 Bars using Array.from */}
-          {Array.from({ length: 10 }, (_, i) => (
-            <Bar delay={i === 0 ? "200ms" : `${i * 200}ms`} key={i} />
-          ))}
-        </Box>
-        <LoadingText>Loading</LoadingText>
-      </Container>
-    </>
+    <Container>
+      <Box>
+        {/* Generate 15 Bars using Array.from */}
+        {Array.from({ length: 15 }, (_, i) => (
+          <Bar delay={i === 0 ? '200ms' : `${i * 200}ms`} key={i} />
+        ))}
+      </Box>
+      <LoadingText>{`${loadingPercent}%`}</LoadingText>
+    </Container>
   );
 };
 
