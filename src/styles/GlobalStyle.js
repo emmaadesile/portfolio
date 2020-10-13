@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     /* fonts */
     --font-Monument: 'Monument Extended', Helvetica, sans-serif;
+    --font-Monument-Bold: 'Monument Extended Bold', Helvetica, sans-serif;
     --font-fira: 'Fira Sans', San Francisco, SF Pro Text, -apple-system, system-ui,BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif;
 
     /* colors */
@@ -21,13 +22,22 @@ const GlobalStyle = createGlobalStyle`
     --iconGrey: #777777;
     --transition: all 0.5s cubic-bezier(0,.52,.59,.83);
 
-    /* fonts-size */
+    /* breakpoints */
     --xxs:320px;
     --xs: 400px;
     --sm: 640px;
     --md: 768px;
     --lg: 1024px;
     --xl: 1280px;
+
+    /* font-sizes */
+    --font-xxs: 12px
+    --font-xs: 13px
+    --font-sm: 14px
+    --font-md: 16px
+    --font-lg: 18px
+    --font-xl: 20px
+    --font-xxl: 24px
   }
 
   html {
@@ -48,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
     background: var(--black);
     width: 100%;
     font-family: var(--font-Monument);
-    font-size: var(--md);
+    font-size: var(--font-md);
     color: var(--black);
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -65,9 +75,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--white);
     font-weight: bolder;
   }
-
+  
   h1 {
     &.header-title {
+      font-size: var(--font-Monument-Bold);
       line-height: 1.1;
 
       @media screen and (min-width: var(--lg)) {
