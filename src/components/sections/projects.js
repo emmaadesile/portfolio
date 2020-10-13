@@ -187,8 +187,7 @@ function Projects({ data }) {
   const projectTwoRef = useRef(null);
 
   useLayoutEffect(() => {
-    const topPosition = (element) =>
-      element.current.getBoundingClientRect().top;
+    const topPosition = (element) => element.current.getBoundingClientRect().top;
 
     const projectOnePosition = topPosition(projectOneRef);
     const projectTwoPosition = topPosition(projectTwoRef);
@@ -197,9 +196,9 @@ function Projects({ data }) {
       const scrollPosition = window.scrollY + window.innerHeight;
 
       if (projectOnePosition < scrollPosition) {
-        setelementInView((state) => ({ ...state, projectOne: true }));
+        setelementInView((elementInView) => ({ ...elementInView, projectOne: true }));
       } else if (projectTwoPosition < scrollPosition) {
-        setelementInView((state) => ({ ...state, projectTwo: true }));
+        setelementInView((elementInView) => ({ ...elementInView, projectTwo: true }));
       }
     };
 
@@ -222,7 +221,7 @@ function Projects({ data }) {
               fluid={data.projectOne.childImageSharp.fluid}
             />
           </div>
-          <div className="project-image-2" ref={projectOneRef}>
+          <div className="project-image-2" ref={projectOneRef} >
             <Img
               alt="project-image-2"
               fluid={data.projectOne2.childImageSharp.fluid}

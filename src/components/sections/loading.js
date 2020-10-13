@@ -50,17 +50,14 @@ const LoadingText = styled.p`
 
 const Loading = () => {
   const [loadingPercent, setLoadingPercent] = useState(0);
-  const maxCount = 100;
 
   useEffect(() => {
     const loadingInterval = setInterval(() => {
-      setLoadingPercent((loadingPercent) =>
-        loadingPercent <= maxCount ? loadingPercent + 1 : 100
-      );
+      setLoadingPercent((loadingPercent) => loadingPercent + 1);
     }, 30);
 
     return () => {
-      clearTimeout(loadingInterval);
+      clearInterval(loadingInterval);
     };
   }, []);
 

@@ -84,7 +84,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <h1 className="header-name">
-        <FadeIn delay={100}>
+        <FadeIn delay={200}>
           <div>
             <span>E</span>
             <span>M</span>
@@ -106,7 +106,7 @@ const Header = () => {
           </div>
         </FadeIn>
       </h1>
-      <FadeIn delay={200}>
+      <FadeIn delay={300}>
         <p className="header-info">
           I’m a Frontend Engineer and UI Designer currently based in Lagos,
           Nigeria. I specialize in building high quality Web and Mobile apps. I
